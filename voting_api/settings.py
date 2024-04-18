@@ -83,8 +83,8 @@ SIMPLE_JWT = {
 
 # spectacular settings:
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'Fleet management Api',
-    'DESCRIPTION': 'Fleet management Api',
+    'TITLE': ' Voting  Api',
+    'DESCRIPTION': 'Voting  Api',
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
     # OTHER SETTINGS
@@ -181,3 +181,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'core.User'

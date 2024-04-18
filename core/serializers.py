@@ -8,7 +8,7 @@ from django.utils import timezone
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from core.models import (User)
+from core.models import *
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -30,5 +30,10 @@ class UserSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         data.pop('password')
         return data
+    
+class PositionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Position
+        fields = '__all__'
     
     

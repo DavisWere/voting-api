@@ -17,3 +17,11 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        if not user.is_superuser:
+            user=  User.objects.filter(id= user.id)
+        else:
+            user= User.objects.all()
+        return user

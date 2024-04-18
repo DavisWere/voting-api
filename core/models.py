@@ -34,6 +34,7 @@ class Position(models.Model):
         ('secretary', 'Secretary'),
         ('treasurer', 'Treasurer'),
     ]
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank= True)
     title = models.CharField(max_length=255, choices=TITLE_CHOICES, default= 'president')
     description = models.CharField(max_length=255)
 
@@ -56,7 +57,7 @@ class Vote(models.Model):
     election = models.ForeignKey(Election, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Vote {self.id} - {self.voter.username} for {self.position.title} in {self.election.title}"
+        return f"Vote {self.voter.username} for {self.position.title} in {self.election.title}"
     
 
 

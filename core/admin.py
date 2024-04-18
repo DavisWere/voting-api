@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
 
-from core.models import   User
+from core.models import   *
 
 class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
@@ -32,3 +32,6 @@ class CustomUserAdmin(UserAdmin):
     )
 
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(Position)
+admin.site.register(Election)
+admin.site.register(Vote)

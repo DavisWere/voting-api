@@ -21,8 +21,9 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model= User
-        fields = ['id', 'first_name', 'last_name', 'email', 'username', 'password']
-        write_only_fields = ['password']
+        fields = ['id', 'first_name', 'last_name', 'email', 'username', 
+                  'password', 'profile_picture', 'user_type']
+        
 
     # remove the password field
     def to_representation(self, instance):

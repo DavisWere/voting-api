@@ -21,4 +21,13 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model= User
-        fields = ['id', 'first_name', 'last_name', 'email', 'username']
+        fields = ['id', 'first_name', 'last_name', 'email', 'username', 'password']
+       
+
+    # remove the password field
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data.pop('password')
+        return data
+    
+    
